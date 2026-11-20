@@ -122,6 +122,16 @@ own test databases and indices, not the environment's live data. Keep
 every check proportionate: a reply that runs out of time is no reply at
 all.
 
+Memory is the other budget, and running out of it is worse: your prompt's
+`## Memory limit` section names how much your whole sandbox may use, your
+own session included, and going over it kills the session with no reply,
+on every retry. Before you run anything whose memory grows with its input
+(a size-limit probe, an attacker-sized input, a large fixture), run it on
+a fraction of that input, measure, and extrapolate. A probe at the full
+size the change accepts can need more memory than you have; report the
+growth you measured and the size that would not fit instead of running
+it.
+
 ## After your reply
 
 That is your whole part. Do not reply to another seat's review, and do

@@ -179,7 +179,7 @@ docs 1036d619cab9539c911d0f75c05bb608eec83843f27810c4288ee660f3b2e440
 newcomer 9a0cfc0a9dc3f5d6cc585401f6518a77c369aabffe028ad4a719c489bf0f41d2
 operability a68a607dd795d32e0bc5d17bfe4d84ee1cb2df096ea39e3e5906c6997b4ada0c
 second-opinion d94e01ca1e01efee45861fd6ff656b33927f2f0c465b3104ba208fc9b98a863e
-security 238cb3aa1c0e218feb88a631b2a09c84ab1e293f018c6fedbf4f193a0818a58e
+security 1d44ca798cd45a26ed3dfbb91a8d48de73602d014c32cd921a88a0dd014c116b
 tests 7258be77198f01906b8bfdd6f67d86e5028f08454b7e8e76297c7afd93e44847
 HASHES
 
@@ -1123,6 +1123,16 @@ if [[ -f "$prk" ]]; then
         "pr-review.md sends a seat that cannot run a tool to the tool's own source"
     has_flat "$prk" '"I could not run it" ends the run, not the check' \
         "pr-review.md does not let a missing tool end the check"
+    for mem_kickoff in "$prk" "$repo_dir/fleet/kickoffs/sub-panel.md"; do
+        has_flat "$mem_kickoff" 'your prompt'"'"'s `## Memory limit` section names how much your whole sandbox may use' \
+            "$(basename "$mem_kickoff") points seats at their memory limit"
+        has_flat "$mem_kickoff" 'run it on a fraction of that input, measure, and extrapolate' \
+            "$(basename "$mem_kickoff") sizes a growing probe on a fraction of its input"
+        has_flat "$mem_kickoff" 'report the growth you measured and the size that would not fit instead of running it' \
+            "$(basename "$mem_kickoff") reports a probe that would not fit instead of running it"
+    done
+    has_flat "$repo_dir/fleet/personas/security.md" 'measure the growth at small sizes and extrapolate to the attacker'"'"'s size' \
+        "security.md demonstrates a denial of service by extrapolating, not at full size"
     if grep -qF 'does not yet fill' "$prk"; then
         no "pr-review.md drops the stale 'does not yet fill' note" "still present"
     else
