@@ -88,6 +88,13 @@ re-read the tree or re-run anything until step 4 says you must.
    instead of steps 6-7. This reopens a converged thread. If seats are still
    reviewing N, end the wake with no reply as step 4 says; you will be woken
    again when they reply, and you integrate then. A push never aborts a round.
+   For this test only, a seat your handoff lists under "Seats whose wake
+   failed for good" owes no reply on N: its review will never arrive, so
+   waiting for it would hold the push for ever. If every Panel seat owed on N
+   has replied or is so listed, integrate the push, and say in the cover
+   which seats had no reply on vN because their wake failed. That list never
+   counts as a reply anywhere else: step 4's test, the verdicts of step 6 and
+   the request to the Secretary still wait for every seat.
 4. **Has every Panel seat replied on N?** For each of the seats owed on
    N (every roster seat, unless N answers recheck pushes only: then only the
    seats those pushes listed, together), look for a reply from that seat carrying `X-Version: N`. If any seat has

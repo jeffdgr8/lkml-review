@@ -227,7 +227,12 @@ later cover of its own carries `Frozen-Head: <that sha>`. Once every panel
 seat has replied on vN, or the secretary has already been asked for vN, it
 does not ask for or wait on a verdict: it posts H, unchanged, as version N+1.
 That reopens a converged thread. A push never aborts a round in progress; it
-is integrated after the seats have replied.
+is integrated after the seats have replied. A seat the author's handoff lists
+under "Seats whose wake failed for good" (fork-sandbox names a seat there once
+it has spent its retries and has no run in progress) is not waited for here:
+its reply will never come, so the author integrates the push without it and
+says so in the cover. The new version wakes that seat again. Convergence still
+waits for every seat.
 
 A version like this is a **human-integration version**. Its cover says that a
 human author sits above the author persona and made the calls, gives
