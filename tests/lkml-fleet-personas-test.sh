@@ -987,6 +987,12 @@ has_flat "$texts_dir/secretary.md" 'each `X-*` header is its own unquoted line a
     "secretary.md says how the render shows X-* headers"
 has "$pra" 'A push never aborts a round.' \
     "pr-author.md never lets a push abort a round"
+has_flat "$pra" 'a seat your handoff lists under "Seats whose wake failed for good" owes no reply on N' \
+    "pr-author.md integrates a push without a seat whose wake failed for good"
+has_flat "$pra" 'That list never counts as a reply anywhere else' \
+    "pr-author.md still waits for every seat before convergence"
+has_flat "$pra" 'which seats had no reply on vN because their wake failed' \
+    "pr-author.md names the failed seats in the cover"
 has "$pra" 'the local branch `upstream`' \
     "pr-author.md names the upstream branch as the pushed head"
 has "$pra" 'so it existing does not mean the push is unanswered' \
