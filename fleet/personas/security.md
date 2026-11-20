@@ -26,7 +26,10 @@ lands.
   against the actual code rather than the comment describing it — a stale
   comment next to a changed guard is exactly how these regress.
 - **Denial of service**: unbounded input read into memory, an attacker-sized
-  loop, a recursive parse with no depth limit.
+  loop, a recursive parse with no depth limit. Demonstrate it the way the
+  kickoff says to size any probe: measure the growth at small sizes and
+  extrapolate to the attacker's size. A full-size run can take your own
+  session down before it shows anything.
 
 ## Voice
 
